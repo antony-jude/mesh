@@ -33,6 +33,10 @@ ResQ-Mesh creates an ad-hoc, off-grid peer-to-peer mesh network across standard 
 
 ## System Architecture
 
+<p align="center">
+  <img src="docs/architecture-diagram.png" alt="ResQ-Mesh system architecture" width="100%" />
+</p>
+
 <div align="center">
   <h3><strong>ResQ-Mesh (MeshLink) – System Architecture</strong></h3>
   <p><em>Zero-Infrastructure Off-Grid Emergency Communication &amp; Multimodal Disaster Triage</em></p>
