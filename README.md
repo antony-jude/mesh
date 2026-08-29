@@ -70,12 +70,23 @@ Graph optimization dynamically computes the safest rescue paths, avoiding mapped
 
 ## Product Workflow
 
-1. Victim device captures audio or emergency signal input
+<table>
+  <tr>
+    <td><strong>1. Sensing</strong><br>Victim device captures audio, vibration, or SOS input.</td>
+    <td><strong>2. Triage</strong><br>Edge ML / on-device inference computes priority and context.</td>
+    <td><strong>3. Relay</strong><br>Encrypted packet hops through nearby phones using BLE + Wi‑Fi Direct.</td>
+    <td><strong>4. Dispatch</strong><br>Gateway syncs to the command center and safe route is computed.</td>
+  </tr>
+</table>
+
+### Workflow flow
+
+1. Victim device captures emergency signal input
 2. Edge triage runs local analysis and computes priority score
 3. Encrypted SOS packet is generated with metadata and location context
-4. Packet is relayed across multiple nearby phones via P2P mesh routing
-5. Gateway node syncs valid incidents to cloud backend when connectivity returns
-6. Rescue command center visualizes incidents, topology, and safe dispatch route
+4. Packet is relayed across nearby phones via P2P mesh routing
+5. Gateway node syncs valid incidents to the backend when connectivity returns
+6. Rescue command center visualizes topology, risk, and safe dispatch route
 
 ---
 
