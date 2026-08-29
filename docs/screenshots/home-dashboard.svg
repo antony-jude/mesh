@@ -1,0 +1,50 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0%" stop-color="#021321"/>
+      <stop offset="100%" stop-color="#071b2d"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" x2="1">
+      <stop offset="0%" stop-color="#0a1e32"/>
+      <stop offset="100%" stop-color="#0f2b3d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect x="40" y="30" width="1120" height="840" rx="26" fill="rgba(13,26,41,0.8)" stroke="#1d3d5d"/>
+  <text x="95" y="95" fill="#dce8f8" font-size="36" font-family="Segoe UI, Arial" font-weight="700">MeshLink</text>
+  <text x="760" y="95" fill="#55d6ff" font-size="22" font-family="Segoe UI, Arial">NODE: NODE-0903</text>
+  <rect x="80" y="125" width="1040" height="110" rx="18" fill="#0c2437" stroke="#25d19f"/>
+  <circle cx="140" cy="180" r="30" fill="#1ce39d"/>
+  <text x="190" y="165" fill="#1ce39d" font-size="28" font-family="Segoe UI, Arial" font-weight="700">MESH MODE ACTIVE</text>
+  <text x="190" y="205" fill="#dce8f8" font-size="20" font-family="Segoe UI, Arial">Online through 0 nearby devices</text>
+  <text x="1030" y="178" fill="#dce8f8" font-size="28" font-family="Segoe UI, Arial" font-weight="700">0</text>
+  <text x="1015" y="210" fill="#9ec2d8" font-size="18" font-family="Segoe UI, Arial">NEARBY</text>
+
+  <rect x="80" y="270" width="300" height="130" rx="18" fill="url(#card)" stroke="#3c5f80"/>
+  <text x="110" y="330" fill="#dce8f8" font-size="18" font-family="Segoe UI, Arial">CONNECTED</text>
+  <text x="110" y="365" fill="#dce8f8" font-size="42" font-family="Segoe UI, Arial" font-weight="700">0 / 0</text>
+
+  <rect x="410" y="270" width="300" height="130" rx="18" fill="url(#card)" stroke="#3c5f80"/>
+  <text x="440" y="330" fill="#dce8f8" font-size="18" font-family="Segoe UI, Arial">PENDING QUEUE</text>
+  <text x="440" y="365" fill="#dce8f8" font-size="42" font-family="Segoe UI, Arial" font-weight="700">0 msgs</text>
+
+  <rect x="740" y="270" width="300" height="130" rx="18" fill="url(#card)" stroke="#3c5f80"/>
+  <text x="770" y="330" fill="#dce8f8" font-size="18" font-family="Segoe UI, Arial">PACKETS RELAYED</text>
+  <text x="770" y="365" fill="#dce8f8" font-size="42" font-family="Segoe UI, Arial" font-weight="700">0</text>
+
+  <rect x="80" y="440" width="960" height="100" rx="22" fill="#b32e2e" stroke="#ff6b6b"/>
+  <text x="160" y="495" fill="#fff" font-size="36" font-family="Segoe UI, Arial" font-weight="700">EMERGENCY SOS</text>
+
+  <rect x="80" y="570" width="320" height="220" rx="20" fill="#0d243a" stroke="#3d6a8b"/>
+  <text x="105" y="620" fill="#dce8f8" font-size="25" font-family="Segoe UI, Arial" font-weight="700">ACTIVE</text>
+  <text x="105" y="660" fill="#dce8f8" font-size="20" font-family="Segoe UI, Arial">Conversations</text>
+  <text x="105" y="700" fill="#dce8f8" font-size="20" font-family="Segoe UI, Arial">0 Active</text>
+
+  <rect x="430" y="570" width="300" height="220" rx="20" fill="#0d243a" stroke="#3d6a8b"/>
+  <text x="470" y="635" fill="#dce8f8" font-size="30" font-family="Segoe UI, Arial" font-weight="700">MAP</text>
+
+  <rect x="760" y="570" width="300" height="220" rx="20" fill="#0d243a" stroke="#3d6a8b"/>
+  <text x="800" y="635" fill="#dce8f8" font-size="30" font-family="Segoe UI, Arial" font-weight="700">PEERS</text>
+
+  <text x="95" y="865" fill="#6fa4c5" font-size="18" font-family="Segoe UI, Arial">Offline mesh prototype • resilient communication</text>
+</svg>

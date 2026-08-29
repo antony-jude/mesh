@@ -1,0 +1,70 @@
+<svg width="1400" height="880" viewBox="0 0 1400 880" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="880" fill="#eef4fb"/>
+  <text x="500" y="60" fill="#0a2338" font-size="38" font-family="Segoe UI, Arial" font-weight="700">ResQ-Mesh (MeshLink) – System Architecture</text>
+  <text x="470" y="95" fill="#375a77" font-size="22" font-family="Segoe UI, Arial">Zero-Infrastructure Off-Grid Emergency Communication &amp; Multimodal Disaster Triage</text>
+
+  <rect x="28" y="130" width="250" height="280" rx="20" fill="#e9f7f0" stroke="#2f9e8a"/>
+  <text x="70" y="170" fill="#0b3b2e" font-size="25" font-family="Segoe UI, Arial" font-weight="700">1. EDGE SENSING &amp; TRIAGE</text>
+  <text x="60" y="215" fill="#0b3b2e" font-size="18">Passive Audio</text>
+  <text x="60" y="245" fill="#0b3b2e" font-size="18">YAMNet filter</text>
+  <text x="60" y="275" fill="#0b3b2e" font-size="18">Silent SOS detector</text>
+  <text x="60" y="305" fill="#0b3b2e" font-size="18">Gemini Nano / TF Lite</text>
+  <text x="60" y="335" fill="#0b3b2e" font-size="18">Priority score + context</text>
+
+  <rect x="320" y="130" width="650" height="280" rx="20" fill="#eaf7ff" stroke="#2c7ecd"/>
+  <text x="560" y="170" fill="#0a3d66" font-size="25" font-family="Segoe UI, Arial" font-weight="700">2. DECENTRALIZED MESH NETWORK</text>
+  <rect x="350" y="210" width="130" height="90" rx="12" fill="#ffffff" stroke="#2c7ecd"/>
+  <text x="382" y="246" fill="#0a3d66" font-size="18">Node A</text>
+  <text x="373" y="272" fill="#0a3d66" font-size="16">Victim</text>
+  <rect x="520" y="210" width="130" height="90" rx="12" fill="#ffffff" stroke="#2c7ecd"/>
+  <text x="552" y="246" fill="#0a3d66" font-size="18">Node B</text>
+  <text x="543" y="272" fill="#0a3d66" font-size="16">Relay</text>
+  <rect x="690" y="210" width="130" height="90" rx="12" fill="#ffffff" stroke="#2c7ecd"/>
+  <text x="722" y="246" fill="#0a3d66" font-size="18">Node C</text>
+  <text x="713" y="272" fill="#0a3d66" font-size="16">Relay</text>
+  <rect x="860" y="210" width="130" height="90" rx="12" fill="#ffffff" stroke="#2c7ecd"/>
+  <text x="889" y="246" fill="#0a3d66" font-size="18">Node D</text>
+  <text x="879" y="272" fill="#0a3d66" font-size="16">Gateway</text>
+  <text x="360" y="335" fill="#0a3d66" font-size="18">BLE + Wi‑Fi Direct</text>
+  <text x="530" y="335" fill="#0a3d66" font-size="18">Store-and-forward relay</text>
+
+  <rect x="1040" y="130" width="330" height="280" rx="20" fill="#fff5eb" stroke="#d97706"/>
+  <text x="1090" y="170" fill="#7c3f00" font-size="25" font-family="Segoe UI, Arial" font-weight="700">3. CLOUD GATEWAY SYNC</text>
+  <text x="1090" y="220" fill="#7c3f00" font-size="18">Gateway role detection</text>
+  <text x="1090" y="250" fill="#7c3f00" font-size="18">Offline packet buffer</text>
+  <text x="1090" y="280" fill="#7c3f00" font-size="18">Sync service</text>
+  <text x="1090" y="310" fill="#7c3f00" font-size="18">Firebase / Firestore</text>
+  <text x="1090" y="340" fill="#7c3f00" font-size="18">Secure push / alerting</text>
+
+  <rect x="28" y="470" width="360" height="330" rx="20" fill="#f3f5ff" stroke="#4b4ed6"/>
+  <text x="72" y="515" fill="#1c2368" font-size="24" font-family="Segoe UI, Arial" font-weight="700">A. DATA &amp; SECURITY LAYER</text>
+  <text x="72" y="560" fill="#1c2368" font-size="18">AES-256 encrypted packets</text>
+  <text x="72" y="595" fill="#1c2368" font-size="18">SHA-256 HMAC integrity</text>
+  <text x="72" y="630" fill="#1c2368" font-size="18">Message TTL / hop count</text>
+  <text x="72" y="665" fill="#1c2368" font-size="18">On-device identity + auth</text>
+  <text x="72" y="700" fill="#1c2368" font-size="18">Deduplication and retry</text>
+
+  <rect x="430" y="470" width="350" height="330" rx="20" fill="#f5fff8" stroke="#2a9d68"/>
+  <text x="490" y="515" fill="#145732" font-size="24" font-family="Segoe UI, Arial" font-weight="700">B. ROUTING &amp; MESH LAYER</text>
+  <text x="490" y="560" fill="#145732" font-size="18">Store-and-forward queue</text>
+  <text x="490" y="595" fill="#145732" font-size="18">TTL management</text>
+  <text x="490" y="630" fill="#145732" font-size="18">Message deduplication</text>
+  <text x="490" y="665" fill="#145732" font-size="18">Link quality monitoring</text>
+  <text x="490" y="700" fill="#145732" font-size="18">Fault tolerance / retries</text>
+
+  <rect x="820" y="470" width="260" height="330" rx="20" fill="#fffaf0" stroke="#d88a00"/>
+  <text x="850" y="515" fill="#855800" font-size="24" font-family="Segoe UI, Arial" font-weight="700">C. COMMAND CENTER</text>
+  <text x="850" y="560" fill="#855800" font-size="18">Live incident map</text>
+  <text x="850" y="595" fill="#855800" font-size="18">Mesh topology graph</text>
+  <text x="850" y="630" fill="#855800" font-size="18">Gemini rationale view</text>
+  <text x="850" y="665" fill="#855800" font-size="18">Hazard-aware routing</text>
+  <text x="850" y="700" fill="#855800" font-size="18">Rescue dispatch monitor</text>
+
+  <rect x="1100" y="470" width="260" height="330" rx="20" fill="#f7f3ff" stroke="#7c3aed"/>
+  <text x="1135" y="515" fill="#3d1a7a" font-size="24" font-family="Segoe UI, Arial" font-weight="700">D. DISPATCH ENGINE</text>
+  <text x="1135" y="560" fill="#3d1a7a" font-size="18">Shortest safe path</text>
+  <text x="1135" y="595" fill="#3d1a7a" font-size="18">Hazard penalty model</text>
+  <text x="1135" y="630" fill="#3d1a7a" font-size="18">Risk-aware route</text>
+  <text x="1135" y="665" fill="#3d1a7a" font-size="18">Resource allocation</text>
+  <text x="1135" y="700" fill="#3d1a7a" font-size="18">Responder guidance</text>
+</svg>
