@@ -1,16 +1,11 @@
-﻿# ResQ-Mesh (MeshLink)
-
-<div align="center">
-
-[![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?logo=flutter)](https://flutter.dev)
-[![Android](https://img.shields.io/badge/Android-Demo%20Ready-3DDC84?logo=android)](https://developer.android.com)
-[![BLE](https://img.shields.io/badge/BLE-WiFi%20P2P-0082FC?logo=bluetooth)](https://www.bluetooth.com)
-[![Offline](https://img.shields.io/badge/Mode-OffGrid%20Mesh-FF6B6B)](https://)
-[![Status](https://img.shields.io/badge/Status-Hackathon%20Prototype-4ade80)](https://)
-
+﻿<div align="center">
+  <img src="docs/architecture-diagram.png" alt="ResQ-Mesh architecture diagram" width="100%" />
 </div>
 
-<h2 align="center">Zero-Infrastructure Off-Grid Emergency Communication & Multimodal Disaster Triage</h2>
+<div align="center">
+  <h1><strong>ResQ-Mesh (MeshLink) – System Architecture</strong></h1>
+  <p><em>Zero-Infrastructure Off-Grid Emergency Communication &amp; Multimodal Disaster Triage</em></p>
+</div>
 
 ## Problem Statement
 
