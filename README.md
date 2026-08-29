@@ -1,5 +1,5 @@
 ﻿<div align="center">
-  <img src="docs/architecture-diagram.png" alt="ResQ-Mesh architecture diagram" width="100%" />
+  <img src="https://github.com/antony-jude/mesh/raw/main/docs/architecture-diagram.png" alt="ResQ-Mesh architecture diagram" width="100%" />
 </div>
 
 <div align="center">
@@ -29,7 +29,7 @@ ResQ-Mesh creates an ad-hoc, off-grid peer-to-peer mesh network across standard 
 ## System Architecture
 
 <p align="center">
-  <img src="docs/architecture-diagram.png" alt="ResQ-Mesh system architecture" width="100%" />
+  <img src="https://github.com/antony-jude/mesh/raw/main/docs/architecture-diagram.png" alt="ResQ-Mesh system architecture" width="100%" />
 </p>
 
 <div align="center">
@@ -161,19 +161,19 @@ ResQ-Mesh creates an ad-hoc, off-grid peer-to-peer mesh network across standard 
 ### Home dashboard
 
 <p align="center">
-  <img src="docs/screenshots/home-dashboard.svg" alt="MeshLink home dashboard" width="420" />
+  <img src="https://github.com/antony-jude/mesh/raw/main/docs/screenshots/home-dashboard.svg" alt="MeshLink home dashboard" width="420" />
 </p>
 
 ### Emergency broadcast screen
 
 <p align="center">
-  <img src="docs/screenshots/emergency-broadcast.svg" alt="Emergency broadcast screen" width="420" />
+  <img src="https://github.com/antony-jude/mesh/raw/main/docs/screenshots/emergency-broadcast.svg" alt="Emergency broadcast screen" width="420" />
 </p>
 
 ### Nearby mesh nodes
 
 <p align="center">
-  <img src="docs/screenshots/nearby-mesh.svg" alt="Nearby mesh nodes screen" width="420" />
+  <img src="https://github.com/antony-jude/mesh/raw/main/docs/screenshots/nearby-mesh.svg" alt="Nearby mesh nodes screen" width="420" />
 </p>
 
 ---
