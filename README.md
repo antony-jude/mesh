@@ -31,40 +31,85 @@ ResQ-Mesh creates an ad-hoc, off-grid peer-to-peer mesh network across standard 
 
 ---
 
-## Core Architecture
+## System Architecture
 
-### 1. P2P Mesh Layer
-Uses decentralized routing over BLE and Wi‑Fi Direct to hop encrypted SOS packets across devices without cellular connectivity.
+<div align="center">
+  <h3><strong>ResQ-Mesh (MeshLink) – System Architecture</strong></h3>
+  <p><em>Zero-Infrastructure Off-Grid Emergency Communication &amp; Multimodal Disaster Triage</em></p>
+</div>
 
-### 2. Edge Audio & Vitals Triage
-Runs on-device acoustic analysis and sensor-based inference to classify distress sounds such as cries, structural collapse patterns, and tapping, then assigns priority scores.
+<table>
+  <tr>
+    <td width="30%" valign="top" style="background:#dfeef0; border:2px solid #5bb5a6; border-radius:12px; padding:18px;">
+      <strong>1. EDGE SENSING &amp; TRIAGE</strong><br><br>
+      Passive Audio<br>
+      YAMNet filter<br>
+      Silent SOS detector<br>
+      Gemini Nano / TF Lite<br>
+      Priority score + context
+    </td>
+    <td width="40%" valign="top" style="background:#dfeaf8; border:2px solid #4a9ad0; border-radius:12px; padding:18px;">
+      <strong>2. DECENTRALIZED MESH NETWORK</strong><br><br>
+      <table width="100%" style="border-spacing:12px 8px;">
+        <tr>
+          <td align="center" style="border:2px solid #5a8fb5; background:#f7fbff; padding:12px 10px; border-radius:8px; width:25%;"><strong>Node A</strong><br>Victim</td>
+          <td align="center" style="border:2px solid #5a8fb5; background:#f7fbff; padding:12px 10px; border-radius:8px; width:25%;"><strong>Node B</strong><br>Relay</td>
+          <td align="center" style="border:2px solid #5a8fb5; background:#f7fbff; padding:12px 10px; border-radius:8px; width:25%;"><strong>Node C</strong><br>Relay</td>
+          <td align="center" style="border:2px solid #5a8fb5; background:#f7fbff; padding:12px 10px; border-radius:8px; width:25%;"><strong>Node D</strong><br>Gateway</td>
+        </tr>
+      </table>
+      <br>
+      BLE + Wi‑Fi Direct &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Store-and-forward relay
+    </td>
+    <td width="30%" valign="top" style="background:#f6ead6; border:2px solid #d79b4b; border-radius:12px; padding:18px;">
+      <strong>3. CLOUD GATEWAY SYNC</strong><br><br>
+      Gateway role detection<br>
+      Offline packet buffer<br>
+      Sync service<br>
+      Firebase / Firestore<br>
+      Secure push / alerting
+    </td>
+  </tr>
+</table>
 
-### 3. Dynamic Topology Visualizer
-Edge-gateway syncs network topology to a central command dashboard once any single node reaches an active network link.
+<br>
 
-### 4. Adaptive Resource Dispatch
-Graph optimization dynamically computes the safest rescue paths, avoiding mapped hazard zones and routing assistance to the highest-priority location.
-
----
-
-## System Architecture Diagram
-
-<p align="center">
-  <img src="docs/screenshots/architecture-overview.svg" alt="ResQ-Mesh architecture diagram" width="100%" />
-</p>
-
-### Tech modules used
-
-- BLE / Wi‑Fi Direct
-- Store-and-Forward Mesh Routing
-- AES-256 Encryption
-- SHA-256 Integrity Validation
-- Gemini Nano / On-device AI
-- TensorFlow Lite / MediaPipe-style audio inference
-- Firebase Firestore sync
-- React command dashboard
-- Flutter mobile application
-- Graph-based hazard-aware routing
+<table>
+  <tr>
+    <td width="25%" valign="top" style="background:#eef3ff; border:2px solid #4e52db; border-radius:12px; padding:18px;">
+      <strong>A. DATA &amp; SECURITY LAYER</strong><br><br>
+      AES-256 encrypted packets<br>
+      SHA-256 HMAC integrity<br>
+      Message TTL / hop count<br>
+      On-device identity + auth<br>
+      Deduplication and retry
+    </td>
+    <td width="25%" valign="top" style="background:#edf9ef; border:2px solid #3aa45e; border-radius:12px; padding:18px;">
+      <strong>B. ROUTING &amp; MESH LAYER</strong><br><br>
+      Store-and-forward queue<br>
+      TTL management<br>
+      Message deduplication<br>
+      Link quality monitoring<br>
+      Fault tolerance / retries
+    </td>
+    <td width="25%" valign="top" style="background:#fff7ea; border:2px solid #d49b2d; border-radius:12px; padding:18px;">
+      <strong>C. COMMAND CENTER</strong><br><br>
+      Live incident map<br>
+      Mesh topology graph<br>
+      Gemini rationale view<br>
+      Hazard-aware routing<br>
+      Rescue dispatch monitor
+    </td>
+    <td width="25%" valign="top" style="background:#f7f0ff; border:2px solid #855bdb; border-radius:12px; padding:18px;">
+      <strong>D. DISPATCH ENGINE</strong><br><br>
+      Shortest safe path<br>
+      Hazard penalty model<br>
+      Risk-aware route<br>
+      Resource allocation<br>
+      Responder guidance
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -72,10 +117,22 @@ Graph optimization dynamically computes the safest rescue paths, avoiding mapped
 
 <table>
   <tr>
-    <td><strong>1. Sensing</strong><br>Victim device captures audio, vibration, or SOS input.</td>
-    <td><strong>2. Triage</strong><br>Edge ML / on-device inference computes priority and context.</td>
-    <td><strong>3. Relay</strong><br>Encrypted packet hops through nearby phones using BLE + Wi‑Fi Direct.</td>
-    <td><strong>4. Dispatch</strong><br>Gateway syncs to the command center and safe route is computed.</td>
+    <td width="25%" valign="top" style="background:#eef7f3; border:2px solid #48b89b; border-radius:12px; padding:16px;">
+      <strong>1. SENSING</strong><br><br>
+      Victim device captures audio, vibration, or emergency input.
+    </td>
+    <td width="25%" valign="top" style="background:#eef7f3; border:2px solid #48b89b; border-radius:12px; padding:16px;">
+      <strong>2. TRIAGE</strong><br><br>
+      Edge ML / on-device inference computes priority and context.
+    </td>
+    <td width="25%" valign="top" style="background:#eef7f3; border:2px solid #48b89b; border-radius:12px; padding:16px;">
+      <strong>3. RELAY</strong><br><br>
+      Encrypted packet hops through nearby devices using BLE + Wi‑Fi Direct.
+    </td>
+    <td width="25%" valign="top" style="background:#eef7f3; border:2px solid #48b89b; border-radius:12px; padding:16px;">
+      <strong>4. DISPATCH</strong><br><br>
+      Gateway syncs to the command center and the safe route is computed.
+    </td>
   </tr>
 </table>
 
