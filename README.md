@@ -1,11 +1,9 @@
-﻿<div align="center">
+﻿<p align="center">
   <img src="https://github.com/antony-jude/mesh/raw/main/docs/architecture-diagram.png" alt="ResQ-Mesh architecture diagram" width="100%" />
-</div>
+</p>
 
-<div align="center">
-  <h1><strong>ResQ-Mesh (MeshLink) – System Architecture</strong></h1>
-  <p><em>Zero-Infrastructure Off-Grid Emergency Communication &amp; Multimodal Disaster Triage</em></p>
-</div>
+# ResQ-Mesh (MeshLink)
+## Zero-Infrastructure Off-Grid Emergency Communication & Multimodal Disaster Triage
 
 ## Problem Statement
 
@@ -31,11 +29,6 @@ ResQ-Mesh creates an ad-hoc, off-grid peer-to-peer mesh network across standard 
 <p align="center">
   <img src="https://github.com/antony-jude/mesh/raw/main/docs/architecture-diagram.png" alt="ResQ-Mesh system architecture" width="100%" />
 </p>
-
-<div align="center">
-  <h3><strong>ResQ-Mesh (MeshLink) – System Architecture</strong></h3>
-  <p><em>Zero-Infrastructure Off-Grid Emergency Communication &amp; Multimodal Disaster Triage</em></p>
-</div>
 
 <table>
   <tr>
