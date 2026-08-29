@@ -156,7 +156,7 @@ class HomeScreen extends StatelessWidget {
                       const Icon(Icons.warning_amber_rounded, size: 20, color: Colors.white),
                       const SizedBox(width: 8),
                       Text(
-                        'EMERGENCY SOS',
+                        'EMERGENCY',
                         style: GoogleFonts.orbitron(fontSize: 12, fontWeight: FontWeight.w800, letterSpacing: 0.8),
                       ),
                     ],
@@ -362,28 +362,54 @@ class HomeScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppTheme.bgSurface,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: AppTheme.borderSubtle),
+        border: Border.all(
+          color: AppTheme.borderSubtle,
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Icon(icon, size: 12, color: color),
+              Icon(
+                icon,
+                size: 12,
+                color: color,
+              ),
+
               const SizedBox(width: 4),
-              Text(
-                label,
-                style: GoogleFonts.inter(fontSize: 8, fontWeight: FontWeight.bold, color: AppTheme.textDim),
+
+              // This prevents the label from overflowing
+              Expanded(
+                child: Text(
+                  label,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.inter(
+                    fontSize: 8,
+                    fontWeight: FontWeight.bold,
+                    color: AppTheme.textDim,
+                  ),
+                ),
               ),
             ],
           ),
+
           const SizedBox(height: 4),
+
           Text(
             value,
-            style: GoogleFonts.firaCode(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: GoogleFonts.firaCode(
+              fontSize: 12,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
           ),
         ],
       ),
     );
   }
-}
+  }
+

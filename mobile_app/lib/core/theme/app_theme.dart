@@ -36,11 +36,11 @@ class AppTheme {
         primaryContainer: primaryContainer,
         secondary: meshGreen,
         surface: bgSurface,
-        background: bgDarkest,
+
         error: meshRed,
         onPrimary: Color(0xFF07090E),
         onSurface: textMain,
-        onBackground: textMain,
+
       ),
       textTheme: baseTextTheme.copyWith(
         headlineLarge: GoogleFonts.orbitron(
@@ -93,7 +93,7 @@ class AppTheme {
         scrolledUnderElevation: 0,
         centerTitle: false,
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: bgCard,
         elevation: 0,
         shape: RoundedRectangleBorder(
@@ -104,3 +104,4 @@ class AppTheme {
     );
   }
 }
+

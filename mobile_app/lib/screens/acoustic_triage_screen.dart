@@ -318,7 +318,7 @@ class _AcousticTriageScreenState extends State<AcousticTriageScreen> with Single
     required Color color,
   }) {
     return ElevatedButton(
-      style: ElevatedButton.styleKey(
+      style: ElevatedButton.styleFrom(
         backgroundColor: const Color(0xFF161B22),
         foregroundColor: Colors.white,
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
