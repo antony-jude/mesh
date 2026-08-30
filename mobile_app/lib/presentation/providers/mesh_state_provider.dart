@@ -3,6 +3,7 @@ import '../../domain/models/emergency_payload.dart';
 import '../../domain/models/message_entity.dart';
 import '../../domain/models/node_entity.dart';
 import '../../services/mesh_network_manager.dart';
+import '../../services/mesh_permission_service.dart';
 import '../../services/routing/routing_engine.dart';
 
 class MeshStateProvider extends ChangeNotifier {
@@ -53,7 +54,14 @@ class MeshStateProvider extends ChangeNotifier {
       notifyListeners();
     });
 
-    networkManager.startMeshNetwork();
+    _startMeshAfterPermissions();
+  }
+
+  Future<void> _startMeshAfterPermissions() async {
+    final allowed = await MeshPermissionService.requestMeshPermissions();
+    if (allowed) {
+      await networkManager.startMeshNetwork();
+    }
   }
 
   Future<void> sendChatMessage(String receiverId, String text) async {

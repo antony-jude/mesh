@@ -7,6 +7,12 @@ class SimulatedMeshTransport implements MeshTransport {
   @override
   String get transportName => 'Simulated Multi-Node Mesh (Demo)';
 
+  @override
+  String get statusMessage => 'Simulation mode active';
+
+  @override
+  String get lastError => '';
+
   bool _isRunning = false;
   @override
   bool get isRunning => _isRunning;

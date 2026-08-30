@@ -13,6 +13,7 @@ class DeveloperDashboardScreen extends StatelessWidget {
     final meshProvider = Provider.of<MeshStateProvider>(context);
     final metrics = meshProvider.metrics;
     final nodes = meshProvider.nodes;
+    final transport = meshProvider.networkManager.transport;
 
     return Scaffold(
       backgroundColor: AppTheme.bgDarkest,
@@ -51,10 +52,32 @@ class DeveloperDashboardScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    _buildInfoColumn('TRANSPORT', meshProvider.networkManager.transport.transportName),
+                    _buildInfoColumn('TRANSPORT', transport.transportName),
                     _buildInfoColumn('BATTERY', '84% (Optimal)'),
                     _buildInfoColumn('DEFAULT TTL', '10 Hops'),
                   ],
+                ),
+                const SizedBox(height: 12),
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: AppTheme.bgDarkest,
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(color: AppTheme.borderSubtle),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('MESH STATUS', style: GoogleFonts.inter(fontSize: 9, fontWeight: FontWeight.bold, color: AppTheme.textDim)),
+                      const SizedBox(height: 4),
+                      Text(transport.statusMessage, style: GoogleFonts.firaCode(fontSize: 11, color: AppTheme.primary)),
+                      if (transport.lastError.isNotEmpty) ...[
+                        const SizedBox(height: 6),
+                        Text('LAST ERROR', style: GoogleFonts.inter(fontSize: 9, fontWeight: FontWeight.bold, color: AppTheme.meshRed)),
+                        Text(transport.lastError, style: GoogleFonts.firaCode(fontSize: 10, color: AppTheme.meshRed)),
+                      ],
+                    ],
+                  ),
                 ),
               ],
             ),

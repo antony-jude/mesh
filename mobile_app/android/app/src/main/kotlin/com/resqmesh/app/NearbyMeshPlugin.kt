@@ -37,6 +37,7 @@ class NearbyMeshPlugin(private val context: Context) : MethodChannel.MethodCallH
             "startMesh" -> {
                 localDeviceId = call.argument<String>("deviceId") ?: "NODE_DEF"
                 localRole = call.argument<String>("role") ?: "VICTIM"
+                notifyStatus("Starting Nearby mesh as $localRole")
                 startMeshNetwork()
                 result.success(true)
             }
@@ -54,6 +55,14 @@ class NearbyMeshPlugin(private val context: Context) : MethodChannel.MethodCallH
         }
     }
 
+    private fun notifyStatus(message: String) {
+        methodChannel?.invokeMethod("onMeshStatus", mapOf("message" to message))
+    }
+
+    private fun notifyError(message: String) {
+        methodChannel?.invokeMethod("onMeshError", mapOf("message" to message))
+    }
+
     private fun startMeshNetwork() {
         Log.i(TAG, "Starting Nearby Connections P2P_CLUSTER mesh for $localDeviceId as $localRole")
 
@@ -69,8 +78,11 @@ class NearbyMeshPlugin(private val context: Context) : MethodChannel.MethodCallH
             advertisingOptions
         ).addOnSuccessListener {
             Log.i(TAG, "Nearby Advertising active.")
+            notifyStatus("Advertising for nearby mesh peers")
         }.addOnFailureListener { e ->
-            Log.e(TAG, "Nearby Advertising failed: ${e.message}")
+            val message = "Nearby Advertising failed: ${e.message}"
+            Log.e(TAG, message)
+            notifyError(message)
         }
 
         // 2. Start Discovery
@@ -84,8 +96,11 @@ class NearbyMeshPlugin(private val context: Context) : MethodChannel.MethodCallH
             discoveryOptions
         ).addOnSuccessListener {
             Log.i(TAG, "Nearby Discovery active.")
+            notifyStatus("Discovering nearby mesh nodes")
         }.addOnFailureListener { e ->
-            Log.e(TAG, "Nearby Discovery failed: ${e.message}")
+            val message = "Nearby Discovery failed: ${e.message}"
+            Log.e(TAG, message)
+            notifyError(message)
         }
     }
 
@@ -99,15 +114,15 @@ class NearbyMeshPlugin(private val context: Context) : MethodChannel.MethodCallH
 
     private val endpointDiscoveryCallback = object : EndpointDiscoveryCallback() {
         override fun onEndpointFound(endpointId: String, info: DiscoveredEndpointInfo) {
-            Log.i(TAG, "Discovered endpoint: ${info.endpointName} ($endpointId)")
-            
-            // Notify Flutter layer
+            val message = "Discovered endpoint: ${info.endpointName} ($endpointId)"
+            Log.i(TAG, message)
+            notifyStatus(message)
+
             methodChannel?.invokeMethod("onEndpointDiscovered", mapOf(
                 "endpointId" to endpointId,
                 "endpointName" to info.endpointName
             ))
 
-            // Auto-request connection to form decentralized mesh cluster
             connectionsClient.requestConnection(
                 localDeviceId,
                 endpointId,
@@ -122,20 +137,25 @@ class NearbyMeshPlugin(private val context: Context) : MethodChannel.MethodCallH
 
     private val connectionLifecycleCallback = object : ConnectionLifecycleCallback() {
         override fun onConnectionInitiated(endpointId: String, connectionInfo: ConnectionInfo) {
-            Log.i(TAG, "Connection initiated from ${connectionInfo.endpointName} ($endpointId). Auto-accepting...")
-            // Accept connection automatically in emergency mesh
+            val message = "Connection initiated from ${connectionInfo.endpointName} ($endpointId). Auto-accepting..."
+            Log.i(TAG, message)
+            notifyStatus(message)
             connectionsClient.acceptConnection(endpointId, payloadCallback)
         }
 
         override fun onConnectionResult(endpointId: String, result: ConnectionResolution) {
             when (result.status.statusCode) {
                 ConnectionsStatusCodes.STATUS_OK -> {
-                    Log.i(TAG, "Connected successfully to: $endpointId")
+                    val message = "Connected successfully to: $endpointId"
+                    Log.i(TAG, message)
+                    notifyStatus(message)
                     connectedEndpoints.add(endpointId)
                     methodChannel?.invokeMethod("onEndpointConnected", mapOf("endpointId" to endpointId))
                 }
                 else -> {
-                    Log.w(TAG, "Connection rejected/failed with status: ${result.status.statusCode}")
+                    val message = "Connection rejected/failed with status: ${result.status.statusCode}"
+                    Log.w(TAG, message)
+                    notifyError(message)
                 }
             }
         }

@@ -5,6 +5,8 @@ import '../../domain/models/node_entity.dart';
 abstract class MeshTransport {
   String get transportName;
   bool get isRunning;
+  String get statusMessage;
+  String get lastError;
 
   Future<void> initialize(String localNodeId, String localDisplayName);
   Future<void> startDiscovery();

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'core/theme/app_theme.dart';
 import 'data/repositories/message_repository_impl.dart';
@@ -7,7 +7,7 @@ import 'presentation/providers/mesh_state_provider.dart';
 import 'presentation/screens/splash/splash_screen.dart';
 import 'services/mesh_network_manager.dart';
 import 'services/security/identity_service.dart';
-import 'services/transport/simulated_transport.dart';
+import 'services/transport/nearby_mesh_transport.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +16,7 @@ void main() {
   final identityService = IdentityService();
   final messageRepository = MessageRepositoryImpl();
   final nodeRepository = NodeRepositoryImpl();
-  final transport = SimulatedMeshTransport();
+  final transport = NearbyMeshTransport();
 
   // 2. Mesh Network Manager
   final networkManager = MeshNetworkManager(

@@ -26,11 +26,14 @@ class MeshNetworkManager {
   final MeshTransport transport;
   late final RoutingEngine routingEngine;
 
+
   MeshConnectivityState _connectivityState = MeshConnectivityState.connected;
   MeshConnectivityState get connectivityState => _connectivityState;
 
   bool _isEmergencyMode = false;
   bool get isEmergencyMode => _isEmergencyMode;
+  bool _isMeshStarted = false;
+  bool _isStartingMesh = false;
 
   final _stateController = StreamController<MeshConnectivityState>.broadcast();
   Stream<MeshConnectivityState> get connectivityStream => _stateController.stream;
@@ -77,9 +80,35 @@ class MeshNetworkManager {
   }
 
   Future<void> startMeshNetwork() async {
-    await transport.initialize(identityService.myNodeId, identityService.displayName);
-    await transport.startAdvertising();
-    await transport.startDiscovery();
+    // Mesh is already running
+    if (_isMeshStarted) {
+      return;
+    }
+
+    // Prevent multiple startup calls at the same time
+    if (_isStartingMesh) {
+      return;
+    }
+
+    _isStartingMesh = true;
+
+    try {
+      await transport.initialize(
+        identityService.myNodeId,
+        identityService.displayName,
+      );
+
+      await transport.startAdvertising();
+      await transport.startDiscovery();
+
+      _isMeshStarted = true;
+    } catch (e) {
+      // Allow another attempt if startup fails
+      _isMeshStarted = false;
+      rethrow;
+    } finally {
+      _isStartingMesh = false;
+    }
   }
 
   /// Send a 1-to-1 or group chat message
@@ -211,7 +240,12 @@ class MeshNetworkManager {
     _deliveredSub?.cancel();
     _ackSub?.cancel();
     _nodesSub?.cancel();
+
+    _isMeshStarted = false;
+    _isStartingMesh = false;
+
     _stateController.close();
+
     routingEngine.dispose();
     transport.dispose();
   }

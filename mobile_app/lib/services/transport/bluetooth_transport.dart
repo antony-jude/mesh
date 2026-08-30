@@ -10,6 +10,12 @@ class BluetoothTransport implements MeshTransport {
   @override
   String get transportName => 'Bluetooth Low Energy (BLE Mesh)';
 
+  @override
+  String get statusMessage => 'BLE transport initialized';
+
+  @override
+  String get lastError => '';
+
   bool _isRunning = false;
   @override
   bool get isRunning => _isRunning;
